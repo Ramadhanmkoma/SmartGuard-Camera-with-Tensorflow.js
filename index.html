@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      SmartGuard | Enhancing Security with Machine Learning Based Intruder
+      Detection System
+    </title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script type="module" crossorigin src="/assets/index-fd25c126.js"></script>
+    <link rel="stylesheet" href="/assets/index-972fca53.css">
+  </head>
+  <body>
+    <nav class="navbar-menu">
+      <div class="logo">
+        <img src="/vite.svg" alt="" srcset="" />
+      </div>
+      <ul>
+        <li class="menu-list">
+          <a
+            href="#"
+            id=""
+            role="button"
+            title="Disable Audio Alert"
+            aria-label="Disable Audio Alert"
+          >
+            <span class="bi bi-volume-mute-fill"></span>
+          </a>
+        </li>
+        <li class="menu-list">
+          <a
+            href="#"
+            id="notify"
+            role="button"
+            title="Disable Alert Notification"
+            aria-label="Disable Alert Notification"
+          >
+            <span class="bi bi-bell-slash-fill" id="icon"></span>
+          </a>
+        </li>
+        <li class="menu-list">
+          <a
+            href="#"
+            id="webcamButton"
+            role="button"
+            title="Start Smart Detection"
+            aria-label="Start Detection Camera"
+          >
+            <span class="bi bi-webcam-fill" style="color: #002"></span>
+          </a>
+        </li>
+        <li class="menu-list">
+          <a
+            href="#"
+            id="videocamera"
+            role="button"
+            title="Deactivate Video Camera"
+            aria-label="Deactivate Video Camera"
+            class="invisible"
+          >
+            <span class="bi bi-camera-video-off-fill"></span>
+          </a>
+        </li>
+        <li class="menu-list">
+          <a
+            href="#"
+            id="fullscreen"
+            role="button"
+            title="Activate Full Screen Mode"
+            aria-label="Start Detection Camera"
+          >
+            <span class="bi bi-fullscreen"></span>
+          </a>
+        </li>
+      </ul>
+      <div class="info">
+        <a href="#" role="button" aria-label="information">
+          <span class="bi bi-info-circle"></span>
+        </a>
+      </div>
+    </nav>
+
+    <div id="app">
+      <div class="banner-bg">
+        <h1 style="color: var(--color-warning); text-align: left">
+          SmartGuard
+        </h1>
+        <h3>
+          Enhancing Security with Machine Learning Based Intruder Detection
+          System
+        </h3>
+        <p>
+          This project aligns with several United Nations Sustainable
+          Development Goals (SDGs), primarily contributing to:
+        </p>
+
+        <div class="sdg" style="margin-top: .5em;">
+          <span class="card"
+            >SDG 9: Industry Innovation and Infrastructure</span
+          >
+          <span class="card">SDG 11: Sustainable Cities and Communities</span>
+          <br />
+          <br />
+          <span class="card"
+            >SDG 16: Peace, Justice, & Strong Institutions</span
+          >
+          <span class="card">
+            SDG 17: Patnerships for the Goals
+          </span>
+        </div>
+
+        <!-- <div>
+        <span class="bi bi-arrow-repeat"></span>
+      </div> -->
+
+        <section class="invisible" id="demos">
+          <!-- <p>
+            Hold some objects up close to your webcam to get a real-time
+            classification! When ready click "enable webcam" below and accept
+            access to the webcam when the browser asks yada yada yada (check the
+            top left of your window)
+          </p> -->
+
+          <div id="liveView" class="camView">
+            <!-- <button id="webcamButton2" disabled>
+              <span class="bi bi-webcam-fill"></span>
+              Enable Webcam
+            </button> -->
+          </div>
+        </section>
+      </div>
+      <br />
+      <video src="" id="webCam" autoplay width="1000" height="680"></video>
+    </div>
+
+    <aside class="predictions">
+      <div class="predictions-class">
+        <div class="pred-headings">
+          <strong>
+            <p>PREDICTIONS CLASS</p>
+          </strong>
+        </div>
+        <div class="pred-desc">
+          <div class="upper-layer">
+            <span class="bi bi-people"></span>
+            <div>
+              <p style="font-size: 24px">Class</p>
+              <div id="classvalue">
+                <span style="color: #ccc">Class Type : </span>
+                <span id="classtype"></span>
+              </div>
+            </div>
+          </div>
+          <div class="lower-layer">
+            <div style="border-right: 1px solid #444; padding: 0 1em 0 0">
+              <small>Object Detected</small>
+              <div style="text-align: center">
+                <span class="classtype" id="classtype2" style="font-size: 20px"> - </span>
+              </div>
+            </div>
+            <div style="border-right: 1px solid #444; padding: 0 1em 0 0">
+              <small>Intruder</small>
+              <div style="text-align: center">
+                <span class="scoretype" style="font-size: 20px">Possible</span>
+              </div>
+            </div>
+            <div style="padding: 0 1em 0 0">
+              <small>Accuracy</small>
+              <div style="text-align: center">
+                <span class="scoretype" style="font-size: 20px">Good</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="predictions-score">
+        <div class="pred-headings">
+          <strong>
+            <p>PREDICTIONS SCORE</p>
+          </strong>
+        </div>
+        <div class="pred-desc">
+          <div class="upper-layer">
+            <span class="bi bi-graph-up-arrow"></span>
+            <div>
+              <p style="font-size: 24px">Score</p>
+              <div id="scorevalue">
+                <span style="color: #ccc">Probability : </span>
+                <span class="scoretype" id="scoretype"></span>
+              </div>
+            </div>
+          </div>
+          <div class="lower-layer">
+            <div style="border-right: 1px solid #444; padding: 0 1em 0 0">
+              <small>Percentage (%)</small>
+              <div style="text-align: center">
+                <span class="scoretype" style="font-size: 20px"> - </span>
+              </div>
+            </div>
+            <div style="border-right: 1px solid #444; padding: 0 1em 0 0">
+              <small>Assured</small>
+              <div style="text-align: center">
+                <span class="scoretype" style="font-size: 20px"> - </span>
+              </div>
+            </div>
+            <div style="padding: 0 1em 0 0">
+              <small>Accuracy</small>
+              <div style="text-align: center">
+                <span class="scoretype" style="font-size: 20px">Good</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Importing TensorFlow Library -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"
+      type="text/javascript"
+    ></script>
+    <!-- Loading the COCO-SSD Model for Object Recognition in images or captures -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"
+      defer
+    ></script>
+    
+  </body>
+</html>
